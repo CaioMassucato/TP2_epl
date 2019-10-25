@@ -9,7 +9,11 @@ class Literal < EvalInterface
     attr_accessor :lit_value
 
     def initialize(value)
-        @lit_value = value.to_i
+        if value >= 0
+            @lit_value = value.to_i
+        else
+            raise "Invalid Data Type"
+        end
     end
 
     # Overridden from class EvalInterface
